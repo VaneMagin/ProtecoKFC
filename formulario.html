@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="img/kfc-i.jpg">
+	<title>Login | KFC Mexico</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/mediaqueries.css">
+	<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif&display=swap" rel="stylesheet">
+	<!-- icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-light bg-white p-0">
+		  <div class="containerF">
+		    <a class="navbar-brand" href="index.html">
+		      <img src="img/kfc-logo.png">
+		    </a>
+		    <a class="cuenta" class="cuentaFormulario" id="link" href="formulario.html">
+		  		Ingresa a tu cuenta
+		 	</a>
+		  </div>
+		</nav>
+	</header>
+	<main>
+		<h1>Ingresa a tu cuenta para ordenar</h1>
+	</main>
+	<section class="registro"> 
+		<input type="email" class="control" placeholder="Correo Electrónico">
+		<input type="password" class="control" placeholder="Contraseña">
+		<p>Olvidaste tu contraseña?</p>
+		<input type="submit" class="boton" value="INGRESA A TU CUENTA">
+		<p id="o">O</p>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0" nonce="Mgl4Isy5"></script>
+		<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+	</section>
+	<div id="spinner" style="background: #4267b2; border-radius: 5px; color: white; height: 40px; text-align: center; width: 250px;">Loading
+	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-use-continue-as="true" data-onlogin="checkLoginState();">&nbsp;</div>
+	<script>
+	    var finished_rendering = function () {
+	        console.log("finished rendering plugins");
+	        var spinner = document.getElementById("spinner");
+	        spinner.removeAttribute("style");
+	        spinner.removeChild(spinner.childNodes[0]);
+	    };
+	    FB.Event.subscribe('xfbml.render', finished_rendering);
+	</script></div>    
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+<script>
+	window.fbAsyncInit = function (){
+	    //Configuración e inicialización de FB JavaScript SDK
+	    FB.init({
+	        appId: '220827556151042', //FB App ID
+	        cookie: true,  //enable cookies to allow the server to access the session
+	        xfbml: true,  //parse social plugins on this page
+	        version: 'v3.2' //Usa la version 3.2 de la api
+	    });
+
+	    FB.getLoginStatus(function (response) {
+	        console.log(response);
+	    });
+	}
+
+	(function(d, s, id){
+	         var js, fjs = d.getElementsByTagName(s)[0];
+	         if (d.getElementById(id)) {return;}
+	         js = d.createElement(s); js.id = id;
+	         js.src = "//connect.facebook.net/en_US/sdk.js";
+	         fjs.parentNode.insertBefore(js, fjs);
+	       }(document, 'script', 'facebook-jssdk'));
+</script>
+</html>
